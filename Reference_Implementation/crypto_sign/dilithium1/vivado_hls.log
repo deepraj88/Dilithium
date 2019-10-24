@@ -1,0 +1,14 @@
+INFO: [HLS 200-10] Running '/opt/Xilinx2018/Vivado/2018.3/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'dss545' on host 'hansolo.poly.edu' (Linux_x86_64 version 3.10.0-957.10.1.el7.x86_64) on Thu Oct 24 18:32:41 EDT 2019
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux Server release 7.6 (Maipo)"
+INFO: [HLS 200-10] In directory '/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium1'
+INFO: [HLS 200-10] Opening project '/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium1/dilithium1.prj'.
+INFO: [HLS 200-10] Opening solution '/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium1/dilithium1.prj/sign_open'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7a200tfbg676-2'
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../newtest_sign.c in debug mode
+   Generating csim.exe
+INFO: [SIM 211-1] CSim file generation done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
