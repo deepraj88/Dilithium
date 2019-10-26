@@ -42,7 +42,7 @@ main()
     unsigned char       seed[48];
     unsigned char       msg[3300];
     unsigned char       entropy_input[48];
-    unsigned char        m[3300], m1[3300], sm[3300+CRYPTO_BYTES], sm_rsp[3300+CRYPTO_BYTES];
+    unsigned char        m[3300], m1[3300+CRYPTO_BYTES], sm[3300+CRYPTO_BYTES], sm_rsp[3300+CRYPTO_BYTES];
     //unsigned char       *m, *sm, *m1, *m_rsp, *sm_rsp;
     unsigned long long  mlen, smlen, mlen1, smlen_rsp;
     int                 count;
@@ -70,7 +70,7 @@ main()
 #elif (RADIX == 64)
     sprintf(fn_rsp, "/home/kb150/CRYSTALS-Dilithium/KAT/Dilithium_recommended/PQCsignKAT_3504.rsp");
 #endif*/
-    sprintf(fn_rsp, "../../../../../KAT/Dilithium1/PQCsignKAT_2096.rsp");
+    sprintf(fn_rsp, "../../../../../../../KAT/dilithium1/PQCsignKAT_2096.rsp");
     if ( (fp_rsp = fopen(fn_rsp, "r")) == NULL ) {
         printf("Couldn't open <%s> for read\n", fn_rsp);
         return KAT_FILE_OPEN_ERROR;

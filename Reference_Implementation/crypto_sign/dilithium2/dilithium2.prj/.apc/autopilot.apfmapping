@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="fips202.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/fips202.c"/>
+    <originFiles name="ntt.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/ntt.c"/>
+    <originFiles name="packing.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/packing.c"/>
+    <originFiles name="poly.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/poly.c"/>
+    <originFiles name="reduce.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/reduce.c"/>
+    <originFiles name="rng.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/rng.c"/>
+    <originFiles name="rounding.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/rounding.c"/>
+    <originFiles name="sign.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/sign.c"/>
+    <originFiles name="aes.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/aes.c"/>
+    <originFiles name="polyvec.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/polyvec.c"/>
+  </source>
+  <testbench>
+    <originFiles name="newtest_sign.c" path="/home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/newtest_sign.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

@@ -7,6 +7,7 @@
 #include "poly.h"
 #include "polyvec.h"
 #include "packing.h"
+#include "api.h"
 
 /*************************************************
 * Name:        expand_mat
@@ -93,7 +94,7 @@ void challenge(poly *c,
 *
 * Returns 0 (success)
 **************************************************/
-int crypto_sign_keypair(unsigned char *pk, unsigned char *sk) {
+int crypto_sign_keypair(unsigned char pk[CRYPTO_PUBLICKEYBYTES], unsigned char sk[CRYPTO_SECRETKEYBYTES]) {
   unsigned int i;
   unsigned char seedbuf[3*SEEDBYTES];
   unsigned char tr[CRHBYTES];
@@ -158,11 +159,11 @@ int crypto_sign_keypair(unsigned char *pk, unsigned char *sk) {
 *
 * Returns 0 (success)
 **************************************************/
-int crypto_sign(unsigned char *sm,
-                unsigned long long *smlen,
-                const unsigned char *m,
+int crypto_sign(unsigned char sm[MLEN + CRYPTO_BYTES],
+                unsigned long long smlen[1],
+                const unsigned char m[MLEN],
                 unsigned long long mlen,
-                const unsigned char *sk)
+                const unsigned char sk[CRYPTO_SECRETKEYBYTES])
 {
   unsigned long long i;
   unsigned int n;
@@ -282,11 +283,11 @@ int crypto_sign(unsigned char *sm,
 *
 * Returns 0 if signed message could be verified correctly and -1 otherwise
 **************************************************/
-int crypto_sign_open(unsigned char *m,
-                     unsigned long long *mlen,
-                     const unsigned char *sm,
+int crypto_sign_open(unsigned char m[MLEN],
+                     unsigned long long mlen[1],
+                     const unsigned char sm[MLEN + CRYPTO_BYTES],
                      unsigned long long smlen,
-                     const unsigned char *pk)
+                     const unsigned char pk[CRYPTO_PUBLICKEYBYTES])
 {
   unsigned long long i;
   unsigned char rho[SEEDBYTES];

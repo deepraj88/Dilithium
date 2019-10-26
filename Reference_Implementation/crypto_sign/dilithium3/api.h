@@ -3,6 +3,8 @@
 
 #include "config.h"
 
+#define MLEN 3400
+
 #if MODE == 1
 #define CRYPTO_PUBLICKEYBYTES 896U
 #define CRYPTO_SECRETKEYBYTES 2096U
