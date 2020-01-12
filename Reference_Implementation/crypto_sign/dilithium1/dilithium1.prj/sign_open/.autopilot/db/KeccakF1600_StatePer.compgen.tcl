@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 9
+set ID 11
 set hasByteEnable 0
 set MemName KeccakF1600_StatePer_KeccakF_RoundConstan
 set CoreName ap_simcore_mem
@@ -94,7 +94,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 10 \
+    id 12 \
     name state \
     reset_level 1 \
     sync_rst true \
@@ -108,6 +108,21 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 }
 
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 13 \
+    name keccak_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_keccak_count \
+    op interface \
+    ports { keccak_count_i { I 32 vector } keccak_count_o { O 32 vector } keccak_count_o_ap_vld { O 1 bit } } \
+} "
+}
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {

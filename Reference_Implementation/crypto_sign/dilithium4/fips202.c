@@ -31,7 +31,7 @@ static uint64_t load64(const unsigned char *x) {
   unsigned int i;
   uint64_t r = 0;
 
-  for (i = 0; i < 8; ++i)
+  load64_label59:for (i = 0; i < 8; ++i)
     r |= (uint64_t)x[i] << 8*i;
 
   return r;
@@ -48,7 +48,7 @@ static uint64_t load64(const unsigned char *x) {
 static void store64(unsigned char *x, uint64_t u) {
   unsigned int i;
 
-  for(i = 0; i < 8; ++i)
+  store64_label60:for(i = 0; i < 8; ++i)
     x[i] = u >> 8*i;
 }
 

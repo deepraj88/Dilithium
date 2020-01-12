@@ -25,10 +25,10 @@ void ntt(uint32_t p[N]) {
   uint32_t zeta, t;
 
   k = 1;
-  for(len = 128; len > 0; len >>= 1) {
+  ntt_label8:for(len = 128; len > 0; len >>= 1) {
     for(start = 0; start < N; start = j + len) {
       zeta = zetas[k++];
-      for(j = start; j < start + len; ++j) {
+      ntt_label2:for(j = start; j < start + len; ++j) {
         t = montgomery_reduce((uint64_t)zeta * p[j + len]);
         p[j + len] = p[j] + 2*Q - t;
         p[j] = p[j] + t;
@@ -56,7 +56,7 @@ void invntt_frominvmont(uint32_t p[N]) {
   for(len = 1; len < N; len <<= 1) {
     for(start = 0; start < N; start = j + len) {
       zeta = zetas_inv[k++];
-      for(j = start; j < start + len; ++j) {
+      invntt_frominvmont_label3:for(j = start; j < start + len; ++j) {
         t = p[j];
         p[j] = t + p[j + len];
         p[j + len] = t + 256*Q - p[j + len];

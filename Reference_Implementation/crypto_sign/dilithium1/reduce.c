@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include "params.h"
 #include "reduce.h"
+#include "ap_cint.h"
+
 
 /*************************************************
 * Name:        montgomery_reduce
@@ -12,14 +14,46 @@
 *
 * Returns r.
 **************************************************/
-uint32_t montgomery_reduce(uint64_t a) {
-  uint64_t t;
+#ifdef DEBUG_OPT
+extern int montgomery_count;
+#endif
 
-  t = a * QINV;
-  t &= (1ULL << 32) - 1;
-  t *= Q;
+uint32_t montgomery_reduce(uint64_t a) {
+  uint64_t t, t2;
+
+
+#ifdef DEBUG_OPT
+  montgomery_count++;
+#endif
+
+#ifdef NO_DEBUG_OPT1
+  uint64_t temp;
+
+  temp = a;
+  temp = a * QINV;
+  //temp = - (temp<<26) + (temp<<23) - (temp<<13) - temp;
+  temp &= (1ULL << 32) - 1;
+  //temp &= (1ULL << 32) - 1;
+  t = temp;
+  t = temp*Q;
+  //t = (t<<23) - (t<<13) + t + a;
   t = a + t;
   t >>= 32;
+#else
+  uint32_t temp;
+
+  temp = a;
+  //temp = a * QINV;
+  temp = - (temp<<26) + (temp<<23) - (temp<<13) - temp;
+  //temp &= (1ULL << 32) - 1;
+  //temp &= (1ULL << 32) - 1;
+  t = temp;
+  //t = temp*Q;
+
+  t = (t<<23) - (t<<13) + t + a;
+  //t = a + t;
+  t >>= 32;
+#endif
   return t;
 }
 
@@ -35,10 +69,18 @@ uint32_t montgomery_reduce(uint64_t a) {
 **************************************************/
 uint32_t reduce32(uint32_t a) {
   uint32_t t;
+  uint23 temp2;
+  uint24 temp;
 
-  t = a & 0x7FFFFF;
+//  t = a & 0x7FFFFF;
+//  a >>= 23;
+//  t += (a << 13) - a;
+
+  temp2 = a & 0x7FFFFF;
   a >>= 23;
-  t += (a << 13) - a;
+  temp = temp2 + (a << 13) - a;
+  t = temp;
+
   return t;
 }
 
@@ -52,9 +94,16 @@ uint32_t reduce32(uint32_t a) {
 * Returns r.
 **************************************************/
 uint32_t csubq(uint32_t a) {
-  a -= Q;
-  a += ((int32_t)a >> 31) & Q;
-  return a;
+//	uint32_t temp, temp2;
+//	temp2 = a;
+//	temp = a;
+	if(a >= Q)
+		a = a - Q;
+//  a -= Q;
+//  a += ((int32_t)a >> 31) & Q;
+//  if(temp != a)
+//	  printf("not equal");
+    return a;
 }
 
 /*************************************************

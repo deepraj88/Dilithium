@@ -9,6 +9,7 @@
 #include "packing.h"
 #include "api.h"
 
+
 /*************************************************
 * Name:        expand_mat
 *
@@ -346,7 +347,6 @@ int crypto_sign_open(unsigned char m[MLEN],
   /* All good, copy msg, return 0 */
   for(i = 0; i < *mlen; ++i)
     m[i] = sm[CRYPTO_BYTES + i];
-
   return 0;
 
   /* Signature verification failed */

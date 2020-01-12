@@ -18,7 +18,7 @@
 void polyvecl_freeze(polyvecl *v) {
   unsigned int i;
 
-  for(i = 0; i < L; ++i)
+  polyvecl_freeze_label9:for(i = 0; i < L; ++i)
     poly_freeze(&v->vec[i]);
 }
 
@@ -35,7 +35,7 @@ void polyvecl_freeze(polyvecl *v) {
 void polyvecl_add(polyvecl *w, const polyvecl *u, const polyvecl *v) {
   unsigned int i;
 
-  for(i = 0; i < L; ++i)
+  polyvecl_add_label10:for(i = 0; i < L; ++i)
     poly_add(&w->vec[i], &u->vec[i], &v->vec[i]);
 }
 
@@ -50,7 +50,7 @@ void polyvecl_add(polyvecl *w, const polyvecl *u, const polyvecl *v) {
 void polyvecl_ntt(polyvecl *v) {
   unsigned int i;
 
-  for(i = 0; i < L; ++i)
+  polyvecl_ntt_label11:for(i = 0; i < L; ++i)
     poly_ntt(&v->vec[i]);
 }
 
@@ -76,7 +76,7 @@ void polyvecl_pointwise_acc_invmontgomery(poly *w,
 
   poly_pointwise_invmontgomery(w, &u->vec[0], &v->vec[0]);
 
-  for(i = 1; i < L; ++i) {
+  polyvecl_pointwise_acc_invmontgomery_label4:for(i = 1; i < L; ++i) {
     poly_pointwise_invmontgomery(&t, &u->vec[i], &v->vec[i]);
     poly_add(w, w, &t);
   }
@@ -97,7 +97,7 @@ void polyvecl_pointwise_acc_invmontgomery(poly *w,
 int polyvecl_chknorm(const polyvecl *v, uint32_t bound)  {
   unsigned int i;
 
-  for(i = 0; i < L; ++i)
+  polyvecl_chknorm_label12:for(i = 0; i < L; ++i)
     if(poly_chknorm(&v->vec[i], bound))
       return 1;
 
@@ -150,7 +150,7 @@ void polyveck_csubq(polyveck *v) {
 void polyveck_freeze(polyveck *v)  {
   unsigned int i;
 
-  for(i = 0; i < K; ++i)
+  polyveck_freeze_label13:for(i = 0; i < K; ++i)
     poly_freeze(&v->vec[i]);
 }
 
@@ -167,7 +167,7 @@ void polyveck_freeze(polyveck *v)  {
 void polyveck_add(polyveck *w, const polyveck *u, const polyveck *v) {
   unsigned int i;
 
-  for(i = 0; i < K; ++i)
+  polyveck_add_label14:for(i = 0; i < K; ++i)
     poly_add(&w->vec[i], &u->vec[i], &v->vec[i]);
 }
 
@@ -251,7 +251,7 @@ void polyveck_invntt_montgomery(polyveck *v) {
 int polyveck_chknorm(const polyveck *v, uint32_t bound) {
   unsigned int i;
 
-  for(i = 0; i < K; ++i)
+  polyveck_chknorm_label15:for(i = 0; i < K; ++i)
     if(poly_chknorm(&v->vec[i], bound))
       return 1;
 
@@ -275,7 +275,7 @@ int polyveck_chknorm(const polyveck *v, uint32_t bound) {
 void polyveck_power2round(polyveck *v1, polyveck *v0, const polyveck *v) {
   unsigned int i;
 
-  for(i = 0; i < K; ++i)
+  polyveck_power2round_label16:for(i = 0; i < K; ++i)
     poly_power2round(&v1->vec[i], &v0->vec[i], &v->vec[i]);
 }
 
@@ -337,6 +337,6 @@ unsigned int polyveck_make_hint(polyveck *h,
 void polyveck_use_hint(polyveck *w, const polyveck *u, const polyveck *h) {
   unsigned int i;
 
-  for(i = 0; i < K; ++i)
+  polyveck_use_hint_label17:for(i = 0; i < K; ++i)
     poly_use_hint(&w->vec[i], &u->vec[i], &h->vec[i]);
 }

@@ -5,9 +5,6 @@
     <downStreamTool>
         <DownStreamTool name=""/>
     </downStreamTool>
-    <clockList>
-        <clock default="false" name="default" period="10"/>
-    </clockList>
     <config>
         <schedule model="crypto_sign_keypair"/>
         <config_compile blackbox="" no_signed_zeros="0" unsafe_math_optimizations="0"/>
@@ -72,5 +69,8 @@
         <library name="DefaultPlatform" value="xilinx/artix7/artix7"/>
         <library name="DefaultPlatform" value="xilinx/artix7/artix7_fpv6"/>
     </libraryList>
+    <clockList>
+        <clock name="default" default="false" period="10"/>
+    </clockList>
 </solution>
 

@@ -1,4 +1,4 @@
-<project xmlns="com.autoesl.autopilot.project" name="dilithium1.prj" top="crypto_sign_keypair">
+<project xmlns="com.autoesl.autopilot.project" name="dilithium1.prj" top="crypto_sign">
     <includePaths/>
     <libraryPaths/>
     <Simulation>
@@ -21,6 +21,10 @@
         <solution name="sign_open" status="inactive"/>
         <solution name="sign" status="inactive"/>
         <solution name="keypair" status="active"/>
+        <solution name="keypair_opt" status="inactive"/>
+        <solution name="sign_opt" status="inactive"/>
+        <solution name="sign_opt2" status="inactive"/>
+        <solution name="sign_opt3" status="inactive"/>
     </solutions>
 </project>
 

@@ -1,5 +1,5 @@
 
-set TopModule "crypto_sign_open"
+set TopModule "crypto_sign"
 set ClockPeriod 10
 set ClockList ap_clk
 set HasVivadoClockPeriod 0

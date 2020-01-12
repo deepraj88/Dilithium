@@ -38,7 +38,7 @@ NOTE:   String length must be evenly divisible by 16byte (str_len % 16 == 0)
 #include <stdint.h>
 #include <string.h> // CBC mode, for memset
 #include "aes.h"
-
+#include "config.h"
 /*****************************************************************************/
 /* Defines:                                                                  */
 /*****************************************************************************/
@@ -63,7 +63,9 @@ NOTE:   String length must be evenly divisible by 16byte (str_len % 16 == 0)
   #define MULTIPLY_AS_A_FUNCTION 0
 #endif
 
-
+#ifdef DEBUG_OPT
+extern aes_count;
+#endif
 
 
 /*****************************************************************************/
@@ -411,6 +413,10 @@ static void InvShiftRows(state_t* state)
 static void Cipher(state_t* state, uint8_t RoundKey[AES_keyExpSize])
 {
   uint8_t round = 0;
+
+#ifdef DEBUG_OPT
+  aes_count++;
+#endif
 
   // Add the First round key to the state before starting the rounds.
   AddRoundKey(0, state, RoundKey); 

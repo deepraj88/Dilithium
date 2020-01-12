@@ -1,11 +1,11 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 59
+set ID 74
 set hasByteEnable 0
 set MemName challenge_inbuf
 set CoreName ap_simcore_mem
-set PortList { 2 3 }
+set PortList { 2 1 }
 set DataWd 8
 set AddrRange 432
 set AddrWd 9
@@ -86,11 +86,11 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 60
+set ID 75
 set hasByteEnable 0
 set MemName challenge_outbuf
 set CoreName ap_simcore_mem
-set PortList { 2 3 }
+set PortList { 2 0 }
 set DataWd 8
 set AddrRange 136
 set AddrWd 8
@@ -171,7 +171,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 61
+set ID 76
 set hasByteEnable 0
 set MemName challenge_state_s
 set CoreName ap_simcore_mem
@@ -266,7 +266,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 62 \
+    id 77 \
     name c_coeffs \
     reset_level 1 \
     sync_rst true \
@@ -285,14 +285,14 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 63 \
+    id 78 \
     name mu \
     reset_level 1 \
     sync_rst true \
     dir I \
     corename mu \
     op interface \
-    ports { mu_address0 { O 6 vector } mu_ce0 { O 1 bit } mu_q0 { I 8 vector } } \
+    ports { mu_address0 { O 8 vector } mu_ce0 { O 1 bit } mu_q0 { I 8 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'mu'"
@@ -304,7 +304,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 64 \
+    id 79 \
     name w1_vec_coeffs \
     reset_level 1 \
     sync_rst true \
@@ -318,6 +318,21 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 }
 
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 80 \
+    name keccak_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_keccak_count \
+    op interface \
+    ports { keccak_count_i { I 32 vector } keccak_count_o { O 32 vector } keccak_count_o_ap_vld { O 1 bit } } \
+} "
+}
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {

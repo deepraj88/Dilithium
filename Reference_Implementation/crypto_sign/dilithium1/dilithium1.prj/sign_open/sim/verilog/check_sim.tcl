@@ -1,5 +1,5 @@
 # ==============================================================
-# File generated on Thu Oct 24 18:46:03 EDT 2019
+# File generated on Sun Dec 29 16:27:27 EST 2019
 # Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
@@ -88,8 +88,16 @@ proc check_tvin_file {} {
          "c.crypto_sign_open.autotvin_sm.dat"
          "c.crypto_sign_open.autotvin_smlen.dat"
          "c.crypto_sign_open.autotvin_pk.dat"
+         "c.crypto_sign_open.autotvin_keccak_count.dat"
+         "c.crypto_sign_open.autotvin_ntt_count.dat"
+         "c.crypto_sign_open.autotvin_montgomery_count.dat"
+         "c.crypto_sign_open.autotvin_invntt_count.dat"
          "c.crypto_sign_open.autotvout_m.dat"
          "c.crypto_sign_open.autotvout_mlen.dat"
+         "c.crypto_sign_open.autotvout_keccak_count.dat"
+         "c.crypto_sign_open.autotvout_ntt_count.dat"
+         "c.crypto_sign_open.autotvout_montgomery_count.dat"
+         "c.crypto_sign_open.autotvout_invntt_count.dat"
          "c.crypto_sign_open.autotvout_ap_return.dat"
     }
     foreach rtlfile $rtlfilelist {
@@ -117,6 +125,10 @@ proc check_tvout_file {} {
     set rtlfilelist {
          "rtl.crypto_sign_open.autotvout_m.dat"
          "rtl.crypto_sign_open.autotvout_mlen.dat"
+         "rtl.crypto_sign_open.autotvout_keccak_count.dat"
+         "rtl.crypto_sign_open.autotvout_ntt_count.dat"
+         "rtl.crypto_sign_open.autotvout_montgomery_count.dat"
+         "rtl.crypto_sign_open.autotvout_invntt_count.dat"
          "rtl.crypto_sign_open.autotvout_ap_return.dat"
     }
     foreach rtlfile $rtlfilelist {

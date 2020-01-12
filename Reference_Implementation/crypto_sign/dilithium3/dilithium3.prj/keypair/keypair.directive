@@ -1,2 +1,114 @@
-<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView"/>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="load64" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="store64" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="keccak_absorb" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="keccak_absorb" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="keccak_absorb" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="keccak_squeezeblocks" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="keccak_squeezeblocks" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="keccak_squeezeblocks" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="shake128_absorb" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="shake128_absorb" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="shake128_absorb" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="shake256_absorb" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="shake256_absorb" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="shake256_absorb" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="shake256" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="shake256" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="shake256" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="load64" label="load64_label29" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="store64" label="store64_label30" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="ntt" label="ntt_label31" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="ntt" label="ntt_label31" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="invntt_frominvmont" label="invntt_frominvmont_label32" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="invntt_frominvmont" label="invntt_frominvmont_label32" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="poly_freeze" label="poly_freeze_label33" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="poly_freeze" label="poly_freeze_label33" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="poly_add" label="poly_add_label34" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="poly_add" label="poly_add_label34" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="rej_eta" label="rej_eta_label35" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyvecl_pointwise_acc_invmontgomery" label="polyvecl_pointwise_acc_invmontgomery_label36" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyvecl_pointwise_acc_invmontgomery" label="polyvecl_pointwise_acc_invmontgomery_label36" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
 

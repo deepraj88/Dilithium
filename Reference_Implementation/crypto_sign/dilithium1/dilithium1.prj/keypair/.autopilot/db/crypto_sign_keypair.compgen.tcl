@@ -1,94 +1,9 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 93
+set ID 115
 set hasByteEnable 0
-set MemName crypto_sign_keypair_t_i
-set CoreName ap_simcore_mem
-set PortList { 2 3 }
-set DataWd 8
-set AddrRange 136
-set AddrWd 8
-set impl_style block
-set TrueReset 0
-set HasInitializer 0
-set IsROM 0
-set ROMData {}
-set NumOfStage 2
-set MaxLatency -1
-set DelayBudget 2.772
-set ClkPeriod 10
-set RegisteredInput 0
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
-    eval "ap_gen_simcore_mem { \
-    id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
-    registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-} else {
-    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-  ::AP::rtl_comp_handler $MemName
-}
-
-
-set CoreName RAM
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
-    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
-    id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
-    registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-  } else {
-    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
-  }
-}
-
-
-# Memory (RAM/ROM)  definition:
-set ID 94
-set hasByteEnable 0
-set MemName crypto_sign_keypair_s
+set MemName crypto_sign_keypair_state_s_1
 set CoreName ap_simcore_mem
 set PortList { 2 2 }
 set DataWd 64
@@ -171,11 +86,11 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 95
+set ID 116
 set hasByteEnable 0
-set MemName crypto_sign_keypair_output_assign_1
+set MemName crypto_sign_keypair_empty
 set CoreName ap_simcore_mem
-set PortList { 2 3 }
+set PortList { 2 0 }
 set DataWd 8
 set AddrRange 168
 set AddrWd 8
@@ -256,7 +171,92 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 96
+set ID 117
+set hasByteEnable 0
+set MemName crypto_sign_keypair_t_i
+set CoreName ap_simcore_mem
+set PortList { 2 0 }
+set DataWd 8
+set AddrRange 136
+set AddrWd 8
+set impl_style block
+set TrueReset 0
+set HasInitializer 0
+set IsROM 0
+set ROMData {}
+set NumOfStage 2
+set MaxLatency -1
+set DelayBudget 2.772
+set ClkPeriod 10
+set RegisteredInput 0
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
+    eval "ap_gen_simcore_mem { \
+    id ${ID} \
+    name ${MemName} \
+    corename ${CoreName}  \
+    op mem \
+    hasByteEnable ${hasByteEnable} \
+    reset_level 1 \
+    sync_rst true \
+    stage_num ${NumOfStage}  \
+    registered_input ${RegisteredInput} \
+    port_num 2 \
+    port_list \{${PortList}\} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    addr_range ${AddrRange} \
+    style ${impl_style} \
+    true_reset ${TrueReset} \
+    delay_budget ${DelayBudget} \
+    clk_period ${ClkPeriod} \
+    HasInitializer ${HasInitializer} \
+    rom_data \{${ROMData}\} \
+ } "
+} else {
+    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+  ::AP::rtl_comp_handler $MemName
+}
+
+
+set CoreName RAM
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
+    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
+    id ${ID} \
+    name ${MemName} \
+    corename ${CoreName}  \
+    op mem \
+    hasByteEnable ${hasByteEnable} \
+    reset_level 1 \
+    sync_rst true \
+    stage_num ${NumOfStage}  \
+    registered_input ${RegisteredInput} \
+    port_num 2 \
+    port_list \{${PortList}\} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    addr_range ${AddrRange} \
+    style ${impl_style} \
+    true_reset ${TrueReset} \
+    delay_budget ${DelayBudget} \
+    clk_period ${ClkPeriod} \
+    HasInitializer ${HasInitializer} \
+    rom_data \{${ROMData}\} \
+ } "
+  } else {
+    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
+  }
+}
+
+
+# Memory (RAM/ROM)  definition:
+set ID 118
 set hasByteEnable 0
 set MemName crypto_sign_keypair_seedbuf
 set CoreName ap_simcore_mem
@@ -341,7 +341,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 97
+set ID 119
 set hasByteEnable 0
 set MemName crypto_sign_keypair_tr
 set CoreName ap_simcore_mem
@@ -426,7 +426,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 98
+set ID 120
 set hasByteEnable 0
 set MemName crypto_sign_keypair_mat_vec_coeffs
 set CoreName ap_simcore_mem
@@ -511,7 +511,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 99
+set ID 121
 set hasByteEnable 0
 set MemName crypto_sign_keypair_s1_vec_coeffs
 set CoreName ap_simcore_mem
@@ -596,7 +596,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 100
+set ID 122
 set hasByteEnable 0
 set MemName crypto_sign_keypair_s1hat_vec_coeffs
 set CoreName ap_simcore_mem
@@ -681,7 +681,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 101
+set ID 123
 set hasByteEnable 0
 set MemName crypto_sign_keypair_s2_vec_coeffs
 set CoreName ap_simcore_mem
@@ -766,11 +766,11 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 102
+set ID 124
 set hasByteEnable 0
 set MemName crypto_sign_keypair_t_vec_coeffs
 set CoreName ap_simcore_mem
-set PortList { 2 1 }
+set PortList { 2 2 }
 set DataWd 32
 set AddrRange 768
 set AddrWd 10
@@ -851,7 +851,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 103
+set ID 125
 set hasByteEnable 0
 set MemName crypto_sign_keypair_t1_vec_coeffs
 set CoreName ap_simcore_mem
@@ -936,7 +936,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 104
+set ID 126
 set hasByteEnable 0
 set MemName crypto_sign_keypair_t0_vec_coeffs
 set CoreName ap_simcore_mem
@@ -1031,14 +1031,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 105 \
+    id 127 \
     name pk \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename pk \
     op interface \
-    ports { pk_address0 { O 10 vector } pk_ce0 { O 1 bit } pk_we0 { O 1 bit } pk_d0 { O 8 vector } pk_q0 { I 8 vector } } \
+    ports { pk_address0 { O 10 vector } pk_ce0 { O 1 bit } pk_we0 { O 1 bit } pk_d0 { O 8 vector } pk_q0 { I 8 vector } pk_address1 { O 10 vector } pk_ce1 { O 1 bit } pk_q1 { I 8 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'pk'"
@@ -1050,7 +1050,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 106 \
+    id 128 \
     name sk \
     reset_level 1 \
     sync_rst true \
@@ -1069,7 +1069,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 107 \
+    id 129 \
     name DRBG_ctx_V \
     reset_level 1 \
     sync_rst true \
@@ -1088,7 +1088,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 108 \
+    id 131 \
     name DRBG_ctx_Key \
     reset_level 1 \
     sync_rst true \
@@ -1106,7 +1106,22 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 109 \
+    id 130 \
+    name aes_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_aes_count \
+    op interface \
+    ports { aes_count_i { I 32 vector } aes_count_o { O 32 vector } aes_count_o_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 132 \
     name DRBG_ctx_reseed_counter \
     type other \
     dir IO \
@@ -1115,6 +1130,66 @@ eval "cg_default_interface_gen_dc { \
     corename dc_DRBG_ctx_reseed_counter \
     op interface \
     ports { DRBG_ctx_reseed_counter_i { I 32 vector } DRBG_ctx_reseed_counter_o { O 32 vector } DRBG_ctx_reseed_counter_o_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 133 \
+    name keccak_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_keccak_count \
+    op interface \
+    ports { keccak_count_i { I 32 vector } keccak_count_o { O 32 vector } keccak_count_o_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 134 \
+    name ntt_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_ntt_count \
+    op interface \
+    ports { ntt_count_i { I 32 vector } ntt_count_o { O 32 vector } ntt_count_o_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 135 \
+    name montgomery_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_montgomery_count \
+    op interface \
+    ports { montgomery_count_i { I 32 vector } montgomery_count_o { O 32 vector } montgomery_count_o_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 136 \
+    name invntt_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_invntt_count \
+    op interface \
+    ports { invntt_count_i { I 32 vector } invntt_count_o { O 32 vector } invntt_count_o_ap_vld { O 1 bit } } \
 } "
 }
 

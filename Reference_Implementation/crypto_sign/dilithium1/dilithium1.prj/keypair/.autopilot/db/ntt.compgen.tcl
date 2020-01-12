@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 68
+set ID 80
 set hasByteEnable 0
 set MemName ntt_zetas
 set CoreName ap_simcore_mem
@@ -94,7 +94,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 69 \
+    id 81 \
     name p \
     reset_level 1 \
     sync_rst true \
@@ -112,7 +112,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 70 \
+    id 82 \
     name p_offset \
     type other \
     dir I \
@@ -121,6 +121,36 @@ eval "cg_default_interface_gen_dc { \
     corename dc_p_offset \
     op interface \
     ports { p_offset { I 2 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 83 \
+    name ntt_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_ntt_count \
+    op interface \
+    ports { ntt_count_i { I 32 vector } ntt_count_o { O 32 vector } ntt_count_o_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 84 \
+    name montgomery_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_montgomery_count \
+    op interface \
+    ports { montgomery_count_i { I 32 vector } montgomery_count_o { O 32 vector } montgomery_count_o_ap_vld { O 1 bit } } \
 } "
 }
 

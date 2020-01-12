@@ -1,6 +1,6 @@
 # This script segment is generated automatically by AutoPilot
 
-set id 33
+set id 38
 set name crypto_sign_open_urem_9s_3ns_9_13_seq_1
 set corename simcore_urem_seq
 set op urem
@@ -95,7 +95,7 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_div, check your pla
 
 
 # Memory (RAM/ROM)  definition:
-set ID 35
+set ID 40
 set hasByteEnable 0
 set MemName poly_uniform_buf
 set CoreName ap_simcore_mem
@@ -180,7 +180,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 36
+set ID 41
 set hasByteEnable 0
 set MemName poly_uniform_state_s
 set CoreName ap_simcore_mem
@@ -265,7 +265,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 37
+set ID 42
 set hasByteEnable 0
 set MemName poly_uniform_output_assign
 set CoreName ap_simcore_mem
@@ -360,7 +360,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 38 \
+    id 43 \
     name a_coeffs \
     reset_level 1 \
     sync_rst true \
@@ -379,7 +379,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 41 \
+    id 46 \
     name seed \
     reset_level 1 \
     sync_rst true \
@@ -397,7 +397,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 39 \
+    id 44 \
     name a_coeffs_offset \
     type other \
     dir I \
@@ -412,7 +412,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 40 \
+    id 45 \
     name a_coeffs_offset1 \
     type other \
     dir I \
@@ -427,7 +427,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 42 \
+    id 47 \
     name nonce \
     type other \
     dir I \
@@ -436,6 +436,21 @@ eval "cg_default_interface_gen_dc { \
     corename dc_nonce \
     op interface \
     ports { nonce { I 10 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 48 \
+    name keccak_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_keccak_count \
+    op interface \
+    ports { keccak_count_i { I 32 vector } keccak_count_o { O 32 vector } keccak_count_o_ap_vld { O 1 bit } } \
 } "
 }
 

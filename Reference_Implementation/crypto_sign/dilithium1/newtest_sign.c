@@ -11,8 +11,17 @@
 #include <ctype.h>
 #include "rng.h"
 #include "api.h"
+//#include "params.h"
 //#include "../config.h"
 
+#ifdef DEBUG_OPT
+int ntt_count = 0;
+int aes_count = 0;
+int keccak_count = 0;
+int invntt_count = 0;
+int montgomery_count = 0;
+int poly_unifrom_count = 0;
+#endif
 
 #define	MAX_MARKER_LEN		50
 #define KAT_SUCCESS          0
@@ -166,10 +175,15 @@ main()
 #ifdef KEYPAIR
         // Generate the public/private keypair
         //print_aes256_struct();
+        //ntt_count = 5;
         if ( (ret_val = crypto_sign_keypair(pk, sk)) != 0) {
             printf("crypto_sign_keypair returned <%d>\n", ret_val);
             return KAT_CRYPTO_FAILURE;
         }
+#ifdef DEBUG_OPT
+        printf("After keypair,\n");
+        printf("ntt=%3d invntt=%3d aes=%3d montgoemry=%3d keccak=%3d\n",ntt_count,invntt_count,aes_count,montgomery_count,keccak_count);
+#endif
 #endif
 
 #ifdef READFILE
@@ -201,6 +215,10 @@ main()
             printf("crypto_sign returned <%d>\n", ret_val);
             return KAT_CRYPTO_FAILURE;
         }
+#ifdef DEBUG_OPT
+        printf("After sign,\n");
+        printf("ntt=%3d invntt=%3d aes=%3d montgoemry=%3d keccak=%3d\n",ntt_count,invntt_count,aes_count,montgomery_count,keccak_count);
+#endif
 #endif
 
 #ifdef READFILE
@@ -245,7 +263,10 @@ main()
             printf("crypto_sign_open returned <%d>\n", ret_val);
             return KAT_CRYPTO_FAILURE;
         }
-        
+#ifdef DEBUG_OPT
+        printf("After sign open,\n");
+        printf("ntt=%3d invntt=%3d aes=%3d montgoemry=%3d keccak=%3d\n",ntt_count,invntt_count,aes_count,montgomery_count,keccak_count);
+#endif
         if ( mlen != mlen1 ) {
             printf("crypto_sign_open returned bad 'mlen': Got <%lld>, expected <%lld>\n", mlen1, mlen);
             return KAT_CRYPTO_FAILURE;

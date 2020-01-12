@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 46
+set ID 59
 set hasByteEnable 0
 set MemName polyvecl_pointwise_a_t_coeffs
 set CoreName ap_simcore_mem
@@ -96,14 +96,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 47 \
+    id 60 \
     name w_coeffs \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename w_coeffs \
     op interface \
-    ports { w_coeffs_address0 { O 10 vector } w_coeffs_ce0 { O 1 bit } w_coeffs_we0 { O 1 bit } w_coeffs_d0 { O 32 vector } w_coeffs_q0 { I 32 vector } } \
+    ports { w_coeffs_address0 { O 10 vector } w_coeffs_ce0 { O 1 bit } w_coeffs_we0 { O 1 bit } w_coeffs_d0 { O 32 vector } w_coeffs_q0 { I 32 vector } w_coeffs_address1 { O 10 vector } w_coeffs_ce1 { O 1 bit } w_coeffs_we1 { O 1 bit } w_coeffs_d1 { O 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'w_coeffs'"
@@ -115,7 +115,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 49 \
+    id 62 \
     name u_vec_coeffs \
     reset_level 1 \
     sync_rst true \
@@ -134,7 +134,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 50 \
+    id 63 \
     name v_vec_coeffs \
     reset_level 1 \
     sync_rst true \
@@ -152,7 +152,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 48 \
+    id 61 \
     name w_coeffs_offset \
     type other \
     dir I \
@@ -161,6 +161,21 @@ eval "cg_default_interface_gen_dc { \
     corename dc_w_coeffs_offset \
     op interface \
     ports { w_coeffs_offset { I 2 vector } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 64 \
+    name montgomery_count \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_montgomery_count \
+    op interface \
+    ports { montgomery_count_i { I 32 vector } montgomery_count_o { O 32 vector } montgomery_count_o_ap_vld { O 1 bit } } \
 } "
 }
 

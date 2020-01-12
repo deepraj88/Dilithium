@@ -3,62 +3,137 @@ set moduleName "crypto_sign_keypair"
 set moduleIsExternC "0"
 set rawDecl ""
 set globalVariable ""
-set PortName3 "DRBG_ctx"
-set BitWidth3 "416"
+set PortName3 "ntt_count"
+set BitWidth3 "32"
 set ArrayOpt3 ""
 set Const3 "0"
 set Volatile3 "0"
 set Pointer3 "0"
 set Reference3 "0"
 set Initializer3 ""
-set External3 0
+set External3 1
 set Dims3 [list 0]
 set Interface3 "wire"
 set NameSpace3 [list ]
-set structMem3 ""
-set PortName30 "Key"
-set BitWidth30 "256"
-set ArrayOpt30 ""
-set Const30 "0"
-set Volatile30 "0"
-set Pointer30 "0"
-set Reference30 "0"
-set Dims30 [list  32]
-set Interface30 "wire"
-set DataType30 "unsigned char"
-set Port30 [list $PortName30 $Interface30 $DataType30 $Pointer30 $Dims30 $Const30 $Volatile30 $ArrayOpt30]
-lappend structMem3 $Port30
-set PortName31 "V"
-set BitWidth31 "128"
-set ArrayOpt31 ""
-set Const31 "0"
-set Volatile31 "0"
-set Pointer31 "0"
-set Reference31 "0"
-set Dims31 [list  16]
-set Interface31 "wire"
-set DataType31 "unsigned char"
-set Port31 [list $PortName31 $Interface31 $DataType31 $Pointer31 $Dims31 $Const31 $Volatile31 $ArrayOpt31]
-lappend structMem3 $Port31
-set PortName32 "reseed_counter"
-set BitWidth32 "32"
-set ArrayOpt32 ""
-set Const32 "0"
-set Volatile32 "0"
-set Pointer32 "0"
-set Reference32 "0"
-set Dims32 [list 0]
-set Interface32 "wire"
-set DataType32 "int"
-set Port32 [list $PortName32 $Interface32 $DataType32 $Pointer32 $Dims32 $Const32 $Volatile32 $ArrayOpt32]
-lappend structMem3 $Port32
-set structParameter3 [list ]
-set structArgument3 [list ]
-set NameSpace3 [list ]
-set structIsPacked3 "0"
-set DataType3 [list "AES256_CTR_DRBG_struct" "struct " $structMem3 0 0 $structParameter3 $structArgument3 $NameSpace3 $structIsPacked3]
+set DataType3 "int"
 set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3 $Initializer3 $External3 $NameSpace3]
 lappend globalVariable $Port3
+set PortName4 "montgomery_count"
+set BitWidth4 "32"
+set ArrayOpt4 ""
+set Const4 "0"
+set Volatile4 "0"
+set Pointer4 "0"
+set Reference4 "0"
+set Initializer4 ""
+set External4 1
+set Dims4 [list 0]
+set Interface4 "wire"
+set NameSpace4 [list ]
+set DataType4 "int"
+set Port4 [list $PortName4 $Interface4 $DataType4 $Pointer4 $Dims4 $Const4 $Volatile4 $ArrayOpt4 $Initializer4 $External4 $NameSpace4]
+lappend globalVariable $Port4
+set PortName5 "keccak_count"
+set BitWidth5 "32"
+set ArrayOpt5 ""
+set Const5 "0"
+set Volatile5 "0"
+set Pointer5 "0"
+set Reference5 "0"
+set Initializer5 ""
+set External5 1
+set Dims5 [list 0]
+set Interface5 "wire"
+set NameSpace5 [list ]
+set DataType5 "int"
+set Port5 [list $PortName5 $Interface5 $DataType5 $Pointer5 $Dims5 $Const5 $Volatile5 $ArrayOpt5 $Initializer5 $External5 $NameSpace5]
+lappend globalVariable $Port5
+set PortName6 "invntt_count"
+set BitWidth6 "32"
+set ArrayOpt6 ""
+set Const6 "0"
+set Volatile6 "0"
+set Pointer6 "0"
+set Reference6 "0"
+set Initializer6 ""
+set External6 1
+set Dims6 [list 0]
+set Interface6 "wire"
+set NameSpace6 [list ]
+set DataType6 "int"
+set Port6 [list $PortName6 $Interface6 $DataType6 $Pointer6 $Dims6 $Const6 $Volatile6 $ArrayOpt6 $Initializer6 $External6 $NameSpace6]
+lappend globalVariable $Port6
+set PortName7 "aes_count"
+set BitWidth7 "32"
+set ArrayOpt7 ""
+set Const7 "0"
+set Volatile7 "0"
+set Pointer7 "0"
+set Reference7 "0"
+set Initializer7 ""
+set External7 1
+set Dims7 [list 0]
+set Interface7 "wire"
+set NameSpace7 [list ]
+set DataType7 "int"
+set Port7 [list $PortName7 $Interface7 $DataType7 $Pointer7 $Dims7 $Const7 $Volatile7 $ArrayOpt7 $Initializer7 $External7 $NameSpace7]
+lappend globalVariable $Port7
+set PortName8 "DRBG_ctx"
+set BitWidth8 "416"
+set ArrayOpt8 ""
+set Const8 "0"
+set Volatile8 "0"
+set Pointer8 "0"
+set Reference8 "0"
+set Initializer8 ""
+set External8 0
+set Dims8 [list 0]
+set Interface8 "wire"
+set NameSpace8 [list ]
+set structMem8 ""
+set PortName80 "Key"
+set BitWidth80 "256"
+set ArrayOpt80 ""
+set Const80 "0"
+set Volatile80 "0"
+set Pointer80 "0"
+set Reference80 "0"
+set Dims80 [list  32]
+set Interface80 "wire"
+set DataType80 "unsigned char"
+set Port80 [list $PortName80 $Interface80 $DataType80 $Pointer80 $Dims80 $Const80 $Volatile80 $ArrayOpt80]
+lappend structMem8 $Port80
+set PortName81 "V"
+set BitWidth81 "128"
+set ArrayOpt81 ""
+set Const81 "0"
+set Volatile81 "0"
+set Pointer81 "0"
+set Reference81 "0"
+set Dims81 [list  16]
+set Interface81 "wire"
+set DataType81 "unsigned char"
+set Port81 [list $PortName81 $Interface81 $DataType81 $Pointer81 $Dims81 $Const81 $Volatile81 $ArrayOpt81]
+lappend structMem8 $Port81
+set PortName82 "reseed_counter"
+set BitWidth82 "32"
+set ArrayOpt82 ""
+set Const82 "0"
+set Volatile82 "0"
+set Pointer82 "0"
+set Reference82 "0"
+set Dims82 [list 0]
+set Interface82 "wire"
+set DataType82 "int"
+set Port82 [list $PortName82 $Interface82 $DataType82 $Pointer82 $Dims82 $Const82 $Volatile82 $ArrayOpt82]
+lappend structMem8 $Port82
+set structParameter8 [list ]
+set structArgument8 [list ]
+set NameSpace8 [list ]
+set structIsPacked8 "0"
+set DataType8 [list "AES256_CTR_DRBG_struct" "struct " $structMem8 0 0 $structParameter8 $structArgument8 $NameSpace8 $structIsPacked8]
+set Port8 [list $PortName8 $Interface8 $DataType8 $Pointer8 $Dims8 $Const8 $Volatile8 $ArrayOpt8 $Initializer8 $External8 $NameSpace8]
+lappend globalVariable $Port8
 set PortList ""
 set PortName1 "pk"
 set BitWidth1 "64"

@@ -1,2 +1,175 @@
-<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView"/>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="load64" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="store64" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="keccak_absorb" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="keccak_absorb" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="keccak_absorb" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="keccak_squeezeblocks" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="keccak_squeezeblocks" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="keccak_squeezeblocks" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="shake128_absorb" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="shake128_absorb" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="shake128_absorb" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="shake256_absorb" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="shake256_absorb" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="shake256_absorb" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="shake256_squeezeblocks" label="" functionLabel="">
+            <pragma name="ALLOCATION">
+                <option name="instances" value="shake256_squeezeblocks" positionalBoolean="4"/>
+                <option name="limit" value="1"/>
+                <option name="function" value="" positionalBoolean="type"/>
+            </pragma>
+        </directive>
+        <directive functionName="shake256_squeezeblocks" label="" functionLabel="">
+            <pragma name="INLINE"/>
+        </directive>
+        <directive functionName="load64" label="load64_label0" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="store64" label="store64_label1" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="ntt" label="ntt_label8" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="ntt" label="ntt_label2" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="invntt_frominvmont" label="invntt_frominvmont_label3" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyvecl_freeze" label="polyvecl_freeze_label9" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyvecl_add" label="polyvecl_add_label10" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyvecl_ntt" label="polyvecl_ntt_label11" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyvecl_pointwise_acc_invmontgomery" label="polyvecl_pointwise_acc_invmontgomery_label4" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyvecl_chknorm" label="polyvecl_chknorm_label12" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyveck_freeze" label="polyveck_freeze_label13" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyveck_add" label="polyveck_add_label14" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyveck_chknorm" label="polyveck_chknorm_label15" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyveck_power2round" label="polyveck_power2round_label16" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="polyveck_use_hint" label="polyveck_use_hint_label17" functionLabel="">
+            <pragma name="UNROLL">
+                <option name="factor" value="128"/>
+            </pragma>
+        </directive>
+        <directive functionName="poly_add" label="poly_add_label6" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="poly_sub" label="poly_sub_label18" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="poly_shiftl" label="poly_shiftl_label19" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="poly_uniform" label="poly_uniform_label20" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="rej_eta" label="rej_eta_label7" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="rej_gamma1m1" label="rej_gamma1m1_label21" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyeta_pack" label="polyeta_pack_label22" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyeta_unpack" label="polyeta_unpack_label23" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyt1_pack" label="polyt1_pack_label24" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyt0_pack" label="polyt0_pack_label25" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyt0_unpack" label="polyt0_unpack_label26" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyz_pack" label="polyz_pack_label27" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="polyw1_pack" label="polyw1_pack_label28" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
 

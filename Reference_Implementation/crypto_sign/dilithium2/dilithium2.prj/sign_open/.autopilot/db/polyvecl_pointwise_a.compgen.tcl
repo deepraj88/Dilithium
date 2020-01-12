@@ -103,7 +103,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir IO \
     corename w_coeffs \
     op interface \
-    ports { w_coeffs_address0 { O 10 vector } w_coeffs_ce0 { O 1 bit } w_coeffs_we0 { O 1 bit } w_coeffs_d0 { O 32 vector } w_coeffs_q0 { I 32 vector } } \
+    ports { w_coeffs_address0 { O 10 vector } w_coeffs_ce0 { O 1 bit } w_coeffs_we0 { O 1 bit } w_coeffs_d0 { O 32 vector } w_coeffs_q0 { I 32 vector } w_coeffs_address1 { O 10 vector } w_coeffs_ce1 { O 1 bit } w_coeffs_we1 { O 1 bit } w_coeffs_d1 { O 32 vector } w_coeffs_q1 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'w_coeffs'"

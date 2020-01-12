@@ -1,7 +1,7 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 79
+set ID 76
 set hasByteEnable 0
 set MemName invntt_frominvmont_1_zetas_inv
 set CoreName ap_simcore_mem
@@ -94,14 +94,14 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 80 \
+    id 77 \
     name p \
     reset_level 1 \
     sync_rst true \
     dir IO \
     corename p \
     op interface \
-    ports { p_address0 { O 11 vector } p_ce0 { O 1 bit } p_we0 { O 1 bit } p_d0 { O 32 vector } p_q0 { I 32 vector } p_address1 { O 11 vector } p_ce1 { O 1 bit } p_q1 { I 32 vector } } \
+    ports { p_address0 { O 11 vector } p_ce0 { O 1 bit } p_we0 { O 1 bit } p_d0 { O 32 vector } p_q0 { I 32 vector } p_address1 { O 11 vector } p_ce1 { O 1 bit } p_we1 { O 1 bit } p_d1 { O 32 vector } p_q1 { I 32 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'p'"
@@ -112,7 +112,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 81 \
+    id 78 \
     name p_offset \
     type other \
     dir I \

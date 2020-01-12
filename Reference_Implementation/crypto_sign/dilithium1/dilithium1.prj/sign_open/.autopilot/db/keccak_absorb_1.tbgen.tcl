@@ -15,13 +15,15 @@ set C_modelArgList {
 	{ s int 64 regular {array 25 { 2 2 } 1 1 }  }
 	{ m int 8 regular {array 3400 { 1 3 } 1 1 }  }
 	{ mlen int 64 regular  }
+	{ keccak_count int 32 regular {pointer 2} {global 2}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "s", "interface" : "memory", "bitwidth" : 64, "direction" : "READWRITE"} , 
  	{ "Name" : "m", "interface" : "memory", "bitwidth" : 8, "direction" : "READONLY"} , 
- 	{ "Name" : "mlen", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} ]}
+ 	{ "Name" : "mlen", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "keccak_count", "interface" : "wire", "bitwidth" : 32, "direction" : "READWRITE", "bitSlice":[{"low":0,"up":31,"cElement": [{"cName": "keccak_count","cData": "int","bit_use": { "low": 0,"up": 31},"cArray": [{"low" : 0,"up" : 0,"step" : 1}]}]}], "extern" : 1} ]}
 # RTL Port declarations: 
-set portNum 20
+set portNum 23
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -43,6 +45,9 @@ set portList {
 	{ m_ce0 sc_out sc_logic 1 signal 1 } 
 	{ m_q0 sc_in sc_lv 8 signal 1 } 
 	{ mlen sc_in sc_lv 64 signal 2 } 
+	{ keccak_count_i sc_in sc_lv 32 signal 3 } 
+	{ keccak_count_o sc_out sc_lv 32 signal 3 } 
+	{ keccak_count_o_ap_vld sc_out sc_logic 1 outvld 3 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -64,7 +69,10 @@ set NewPortList {[
  	{ "name": "m_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "m", "role": "address0" }} , 
  	{ "name": "m_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "m", "role": "ce0" }} , 
  	{ "name": "m_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "m", "role": "q0" }} , 
- 	{ "name": "mlen", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "mlen", "role": "default" }}  ]}
+ 	{ "name": "mlen", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "mlen", "role": "default" }} , 
+ 	{ "name": "keccak_count_i", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "keccak_count", "role": "i" }} , 
+ 	{ "name": "keccak_count_o", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "keccak_count", "role": "o" }} , 
+ 	{ "name": "keccak_count_o_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "keccak_count", "role": "o_ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2"],
@@ -81,18 +89,21 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"WaitState" : [
-			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_KeccakF1600_StatePer_fu_306"}],
+			{"State" : "ap_ST_fsm_state8", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_KeccakF1600_StatePer_fu_312"}],
 		"Port" : [
 			{"Name" : "s", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_KeccakF1600_StatePer_fu_306", "Port" : "state"}]},
+					{"ID" : "2", "SubInstance" : "grp_KeccakF1600_StatePer_fu_312", "Port" : "state"}]},
 			{"Name" : "m", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mlen", "Type" : "None", "Direction" : "I"},
+			{"Name" : "keccak_count", "Type" : "OVld", "Direction" : "IO",
+				"SubConnect" : [
+					{"ID" : "2", "SubInstance" : "grp_KeccakF1600_StatePer_fu_312", "Port" : "keccak_count"}]},
 			{"Name" : "KeccakF_RoundConstan", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "2", "SubInstance" : "grp_KeccakF1600_StatePer_fu_306", "Port" : "KeccakF_RoundConstan"}]}]},
+					{"ID" : "2", "SubInstance" : "grp_KeccakF1600_StatePer_fu_312", "Port" : "KeccakF_RoundConstan"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.t_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_KeccakF1600_StatePer_fu_306", "Parent" : "0", "Child" : ["3"],
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_KeccakF1600_StatePer_fu_312", "Parent" : "0", "Child" : ["3"],
 		"CDFG" : "KeccakF1600_StatePer",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
@@ -107,8 +118,9 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
 			{"Name" : "state", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "keccak_count", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "KeccakF_RoundConstan", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_KeccakF1600_StatePer_fu_306.KeccakF_RoundConstan_U", "Parent" : "2"}]}
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_KeccakF1600_StatePer_fu_312.KeccakF_RoundConstan_U", "Parent" : "2"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -116,9 +128,11 @@ set ArgLastReadFirstWriteLatency {
 		s {Type IO LastRead 13 FirstWrite 1}
 		m {Type I LastRead 5 FirstWrite -1}
 		mlen {Type I LastRead 0 FirstWrite -1}
+		keccak_count {Type IO LastRead 13 FirstWrite 13}
 		KeccakF_RoundConstan {Type I LastRead -1 FirstWrite -1}}
 	KeccakF1600_StatePer {
 		state {Type IO LastRead 13 FirstWrite 14}
+		keccak_count {Type IO LastRead 13 FirstWrite 13}
 		KeccakF_RoundConstan {Type I LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
@@ -135,4 +149,5 @@ set Spec2ImplPortList {
 	s { ap_memory {  { s_address0 mem_address 1 5 }  { s_ce0 mem_ce 1 1 }  { s_we0 mem_we 1 1 }  { s_d0 mem_din 1 64 }  { s_q0 mem_dout 0 64 }  { s_address1 MemPortADDR2 1 5 }  { s_ce1 MemPortCE2 1 1 }  { s_we1 MemPortWE2 1 1 }  { s_d1 MemPortDIN2 1 64 }  { s_q1 MemPortDOUT2 0 64 } } }
 	m { ap_memory {  { m_address0 mem_address 1 12 }  { m_ce0 mem_ce 1 1 }  { m_q0 mem_dout 0 8 } } }
 	mlen { ap_none {  { mlen in_data 0 64 } } }
+	keccak_count { ap_ovld {  { keccak_count_i in_data 0 32 }  { keccak_count_o out_data 1 32 }  { keccak_count_o_ap_vld out_vld 1 1 } } }
 }

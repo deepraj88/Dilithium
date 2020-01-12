@@ -60,7 +60,7 @@ void poly_freeze(poly *a) {
   unsigned int i;
   DBENCH_START();
 
-  for(i = 0; i < N; ++i)
+  poly_freeze_label33:for(i = 0; i < N; ++i)
     a->coeffs[i] = freeze(a->coeffs[i]);
 
   DBENCH_STOP(*tred);
@@ -79,7 +79,7 @@ void poly_add(poly *c, const poly *a, const poly *b)  {
   unsigned int i;
   DBENCH_START();
 
-  for(i = 0; i < N; ++i)
+  poly_add_label34:for(i = 0; i < N; ++i)
     c->coeffs[i] = a->coeffs[i] + b->coeffs[i];
 
   DBENCH_STOP(*tadd);
@@ -101,7 +101,7 @@ void poly_sub(poly *c, const poly *a, const poly *b) {
   unsigned int i;
   DBENCH_START();
 
-  for(i = 0; i < N; ++i)
+  poly_sub_label38:for(i = 0; i < N; ++i)
     c->coeffs[i] = a->coeffs[i] + 2*Q - b->coeffs[i];
 
   DBENCH_STOP(*tadd);
@@ -119,7 +119,7 @@ void poly_shiftl(poly *a) {
   unsigned int i;
   DBENCH_START();
 
-  for(i = 0; i < N; ++i)
+  poly_shiftl_label39:for(i = 0; i < N; ++i)
     a->coeffs[i] <<= D;
 
   DBENCH_STOP(*tmul);
@@ -371,7 +371,7 @@ void poly_uniform(poly *a,
 
   while(ctr < N) {
     off = buflen % 3;
-    for(i = 0; i < off; ++i)
+    poly_uniform_label40:for(i = 0; i < off; ++i)
       buf[i] = buf[buflen - off + i];
 
     buflen = STREAM128_BLOCKBYTES + off;
@@ -407,7 +407,7 @@ static unsigned int rej_eta(uint32_t *a,
   DBENCH_START();
 
   ctr = pos = 0;
-  while(ctr < len && pos < buflen) {
+  rej_eta_label35:while(ctr < len && pos < buflen) {
 #if ETA <= 3
     t0 = buf[pos] & 0x07;
     t1 = buf[pos++] >> 5;
@@ -488,7 +488,7 @@ static unsigned int rej_gamma1m1(uint32_t *a,
   DBENCH_START();
 
   ctr = pos = 0;
-  while(ctr < len && pos + 5 <= buflen) {
+  rej_gamma1m1_label41:while(ctr < len && pos + 5 <= buflen) {
     t0  = buf[pos];
     t0 |= (uint32_t)buf[pos + 1] << 8;
     t0 |= (uint32_t)buf[pos + 2] << 16;
@@ -582,7 +582,7 @@ void polyeta_pack(unsigned char *r, const poly *a) {
     r[3*i+2]  = (t[5] >> 1) | (t[6] << 2) | (t[7] << 5);
   }
 #else
-  for(i = 0; i < N/2; ++i) {
+  polyeta_pack_label42:for(i = 0; i < N/2; ++i) {
     t[0] = Q + ETA - a->coeffs[2*i+0];
     t[1] = Q + ETA - a->coeffs[2*i+1];
     r[i] = t[0] | (t[1] << 4);
@@ -626,7 +626,7 @@ void polyeta_unpack(poly *r, const unsigned char *a) {
     r->coeffs[8*i+7] = Q + ETA - r->coeffs[8*i+7];
   }
 #else
-  for(i = 0; i < N/2; ++i) {
+  polyeta_unpack_label43:for(i = 0; i < N/2; ++i) {
     r->coeffs[2*i+0] = a[i] & 0x0F;
     r->coeffs[2*i+1] = a[i] >> 4;
     r->coeffs[2*i+0] = Q + ETA - r->coeffs[2*i+0];
@@ -654,7 +654,7 @@ void polyt1_pack(unsigned char *r, const poly *a) {
   unsigned int i;
   DBENCH_START();
 
-  for(i = 0; i < N/8; ++i) {
+  polyt1_pack_label44:for(i = 0; i < N/8; ++i) {
     r[9*i+0]  = (a->coeffs[8*i+0] >> 0);
     r[9*i+1]  = (a->coeffs[8*i+0] >> 8) | (a->coeffs[8*i+1] << 1);
     r[9*i+2]  = (a->coeffs[8*i+1] >> 7) | (a->coeffs[8*i+2] << 2);
@@ -711,7 +711,7 @@ void polyt0_pack(unsigned char *r, const poly *a) {
   uint32_t t[4];
   DBENCH_START();
 
-  for(i = 0; i < N/4; ++i) {
+  polyt0_pack_label45:for(i = 0; i < N/4; ++i) {
     t[0] = Q + (1U << (D-1)) - a->coeffs[4*i+0];
     t[1] = Q + (1U << (D-1)) - a->coeffs[4*i+1];
     t[2] = Q + (1U << (D-1)) - a->coeffs[4*i+2];
@@ -745,7 +745,7 @@ void polyt0_unpack(poly *r, const unsigned char *a) {
   unsigned int i;
   DBENCH_START();
 
-  for(i = 0; i < N/4; ++i) {
+  polyt0_unpack_label46:for(i = 0; i < N/4; ++i) {
     r->coeffs[4*i+0]  = a[7*i+0];
     r->coeffs[4*i+0] |= (uint32_t)(a[7*i+1] & 0x3F) << 8;
 
@@ -788,7 +788,7 @@ void polyz_pack(unsigned char *r, const poly *a) {
   uint32_t t[2];
   DBENCH_START();
 
-  for(i = 0; i < N/2; ++i) {
+  polyz_pack_label47:for(i = 0; i < N/2; ++i) {
     /* Map to {0,...,2*GAMMA1 - 2} */
     t[0] = GAMMA1 - 1 - a->coeffs[2*i+0];
     t[0] += ((int32_t)t[0] >> 31) & Q;
@@ -852,7 +852,7 @@ void polyw1_pack(unsigned char *r, const poly *a) {
   unsigned int i;
   DBENCH_START();
 
-  for(i = 0; i < N/2; ++i)
+  polyw1_pack_label48:for(i = 0; i < N/2; ++i)
     r[i] = a->coeffs[2*i+0] | (a->coeffs[2*i+1] << 4);
 
   DBENCH_STOP(*tpack);

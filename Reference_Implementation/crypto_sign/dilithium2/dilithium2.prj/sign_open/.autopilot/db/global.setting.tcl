@@ -40,7 +40,7 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7a200t:fbg676:-2
-set SourceFiles {sc {} c {../../sign.c ../../rounding.c ../../rng.c ../../reduce.c ../../polyvec.c ../../poly.c ../../packing.c ../../ntt.c ../../fips202.c ../../aes.c}}
+set SourceFiles {sc {} c {../../aes.c ../../fips202.c ../../ntt.c ../../packing.c ../../poly.c ../../polyvec.c ../../reduce.c ../../rng.c ../../rounding.c ../../sign.c}}
 set SourceFlags {sc {} c {{} {} {} {} {} {} {} {} {} {}}}
 set DirectiveFile /home/dss545/vivado_hls/CRYSTALS-Dilithium/Dilithium/Reference_Implementation/crypto_sign/dilithium2/dilithium2.prj/sign_open/sign_open.directive
 set TBFiles {verilog ../../newtest_sign.c bc ../../newtest_sign.c vhdl ../../newtest_sign.c sc ../../newtest_sign.c cas ../../newtest_sign.c c {}}

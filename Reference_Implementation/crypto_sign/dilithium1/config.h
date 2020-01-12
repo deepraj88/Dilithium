@@ -5,6 +5,9 @@
 #define MODE 1
 #endif
 
+#define DEBUG_OPT
+//int ntt_count = 5;
+
 //#define USE_AES
 //#define RANDOMIZED_SIGNING
 //#define USE_RDPMC
