@@ -23,19 +23,22 @@
     <clock default="false" name="default" period="10"/>
   </clockList>
   <config>
-                            
+                                
+    
     
     
     
     
     <schedule model="crypto_sign"/>
-                            
+                                
+    
     
     
     
     
     <config_compile blackbox=""/>
-                        
+                            
+  
   
   
   
