@@ -1,7 +1,27 @@
 # Hardware Implementation
 
-### Paper Citation
-If you are using this software/methodology/concept in any research paper, kindly cite our work.
+### Publicationi
+If you use this software/methodology in your research, kindly cite our work.
+```
+@misc{pqc2019,
+    author = {Kanad Basu and Deepraj Soni and Mohammed Nabeel and Ramesh Karri},
+    title = {{NIST} Post-Quantum Cryptography- A Hardware Evaluation Study},
+    howpublished = {IACR Cryptology ePrint Archive, Report 2019/047},
+    year = {2019},
+    note = {\url{https://eprint.iacr.org/2019/047}},
+}
+
+@inproceedings{soni2019,
+  title={A Hardware Evaluation Study of {NIST}
+Post-Quantum Cryptographic Signature schemes},
+    author = {Deepraj Soni and Kanad Basu and Mohammed Nabeel and Ramesh Karri},
+  booktitle={Second PQC Standardization Conference},
+  year={2019},
+  organization={NIST},
+  note = {\url{https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/soni-hardware-evaluation.pdf}},
+}
+
+```
 * https://eprint.iacr.org/2019/047.pdf
 * https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/soni-hardware-evaluation.pdf
 
