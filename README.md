@@ -1,5 +1,10 @@
 # Hardware Implementation
 
+### Paper Citation
+If you are using this software/methodology/concept in any research paper, kindly cite our work.
+* https://eprint.iacr.org/2019/047.pdf
+* https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/soni-hardware-evaluation.pdf
+
 ### Open Project
 * Download the github project in the local repository.
 * Open the project. The project name ends with (.prj). 
@@ -17,6 +22,5 @@
 * In the debug mode, run the "Resume(F8)" to start the simulation. If the program works successfully, console shows "Known Answer test PASSED."
  ![debug_mode](./Hw_Implementation_Docs/debug_mode.png)
  ![debug_mode_2](./Hw_Implementation_Docs/debug_mode_2.png)
-
 
 
