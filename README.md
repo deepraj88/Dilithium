@@ -23,8 +23,6 @@ Post-Quantum Cryptographic Signature schemes},
 }
 
 ```
-* https://eprint.iacr.org/2019/047.pdf
-* https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/soni-hardware-evaluation.pdf
 
 ### Open Project
 * Download the github project in the local repository.
