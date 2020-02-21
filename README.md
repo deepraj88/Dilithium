@@ -1,7 +1,8 @@
-# Hardware Implementation
+# PQC Hardware Implementation
 
-### Publicationi
-If you use this software/methodology in your research, kindly cite our work.
+### Publication
+
+If you use this [software](https://csrc.nist.gov/CSRC/media/Events/Second-PQC-Standardization-Conference/documents/accepted-papers/soni-hardware-evaluation.pdf) or [methodology](https://eprint.iacr.org/2019/047.pdf) in your research, kindly cite our work.
 ```
 @misc{pqc2019,
     author = {Kanad Basu and Deepraj Soni and Mohammed Nabeel and Ramesh Karri},
